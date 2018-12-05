@@ -14,7 +14,6 @@ import FooterGuide from './components/FooterGuide/FooterGuide'
       FooterGuide
     },
 
-
   }
 </script>
 

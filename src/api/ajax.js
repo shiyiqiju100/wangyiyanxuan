@@ -2,7 +2,7 @@
 import axios from 'axios'
 
 export default function ajax(url, data = {}, method = 'GET') {
-  return new Promise((reslove, reject) => {
+  return new Promise((resolve, reject) => {
     let promise
     if (method === 'GET') {
       // 准备url query参数
@@ -21,7 +21,8 @@ export default function ajax(url, data = {}, method = 'GET') {
       promise = axios.post(url, data)
     }
     promise.then(response => {
-      reslove(response.data)
+     // console.log(response)
+      resolve(response.data)
     })
       .catch(error => {
         reject(error)

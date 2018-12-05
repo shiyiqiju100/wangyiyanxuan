@@ -8,9 +8,6 @@ import GoodsCart from '../pages/GoodsCart/GoodsCart'
 import Personal from '../pages/Personal/Personal'
 
 
-
-
-
 Vue.use(VueRouter)
 
 const router = new VueRouter({

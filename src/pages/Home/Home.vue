@@ -14,12 +14,12 @@
     <div class="tabWrap">
      <div class="Hscroll">
        <header class="list-header">
-         <div class="list">
-          <div class="item active">
-            <span>推荐</span>
+         <div class="list" v-if="home.data">
+          <div class="item active"  v-for=" (item,index) in home.data.cateList " :key="index">
+            <span>{{item.name}}</span>
             <span class="nav"></span>
           </div>
-           <div class="item">
+           <!--<div class="item">
              <span>推荐</span>
            </div>
            <div class="item">
@@ -36,7 +36,7 @@
            </div>
            <div class="item">
              <span>推荐</span>
-           </div>
+           </div>-->
          </div>
 
        </header>
@@ -53,11 +53,11 @@
   <div class="contentWrap">
    <div class="content">
      <div class="swiper-container">
-       <div class="swiper-wrapper">
-         <div class="swiper-slide">
-           <img src="https://yanxuan.nosdn.127.net/1d66a50452354fa28b045853c078cbe3.jpg?imageView&quality=75&thumbnail=750x0" alt="">
+       <div class="swiper-wrapper" v-if="home.data">
+         <div class="swiper-slide" v-for="(item,index) in home.data.focusList" :key="index">
+           <img :src="item.picUrl" alt="">
          </div>
-         <div class="swiper-slide">
+        <!-- <div class="swiper-slide">
            <img src="https://yanxuan.nosdn.127.net/fda101d5e6beeb56d0ff8245139ff30b.jpg?imageView&quality=75&thumbnail=750x0" alt="">
          </div>
          <div class="swiper-slide">
@@ -65,7 +65,7 @@
          </div>
          <div class="swiper-slide">
            <img src="https://yanxuan.nosdn.127.net/03d8a81e7be4bb1a8d44dc2118f944a4.jpg?imageView&quality=75&thumbnail=750x0" alt="">
-         </div>
+         </div>-->
        </div>
        <!-- 如果需要滚动条 -->
        <div class="swiper-scrollbar">
@@ -73,23 +73,27 @@
        </div>
      </div>
      <ul class="promise">
-       <li>
-         <a href="#">
+       <li v-if="home.data">
+         <a href="#" v-for="(item,index) in home.data.policyDescList" :key="index">
            <i class="icon iconfont icon-queren"></i>
-           <span>网易自营品牌</span>
+           <span>{{item.desc}}</span>
          </a>
-         <a href="#">
+       <!--  <a href="#">
            <i class="icon iconfont icon-queren"></i>
            <span>30天无忧退货</span>
          </a>
          <a href="#">
            <i class="icon iconfont icon-queren"></i>
            <span>48小时快速退款</span>
-         </a>
+         </a>-->
        </li>
      </ul>
-     <ul class="goods">
-       <li class="item">
+     <ul class="goods" v-if="home.data">
+       <li class="item" v-for="(item,index) in home.data.kingKongModule.kingKongList" :key="index">
+         <img :src="item.picUrl" alt="">
+         <div class="text">{{item.text}}</div>
+       </li>
+      <!-- <li class="item">
          <img src="https://yanxuan.nosdn.127.net/98b6a6fc32f1fea861934816729e2cf5.png" alt="">
          <div class="text">居家</div>
        </li>
@@ -124,11 +128,7 @@
        <li class="item">
          <img src="https://yanxuan.nosdn.127.net/98b6a6fc32f1fea861934816729e2cf5.png" alt="">
          <div class="text">居家</div>
-       </li>
-       <li class="item">
-         <img src="https://yanxuan.nosdn.127.net/98b6a6fc32f1fea861934816729e2cf5.png" alt="">
-         <div class="text">居家</div>
-       </li>
+       </li>-->
      </ul>
      <div class="bg"></div>
      <div class="prom">
@@ -153,30 +153,32 @@
          <span class="text">新人专享礼</span>
        </div>
        <div class="content">
-         <a href="#" class="left">
+         <a href="#" class="left" >
            <div class="name">新人专享礼包</div>
            <div class="imgWrap">
              <img src="//yanxuan.nosdn.127.net/d074d02fb86bff9bfbf4fa3010d1e1e6.png"  alt="">
              <div class="animate"></div>
            </div>
          </a>
-         <a href="#" class="right">
-           <div class="module1">
+         <a href="#" class="right" v-if="home.data">
+           <div class="module1" v-for="(item,index) in home.data.indexActivityModule" :key="index">
             <div class="item">
               <div class="picWrap">
-                <img src="http://yanxuan.nosdn.127.net/856e06fc342c9fed7c2216fb537c7242.png"  alt="">
+                <img :src="item.picUrl"  alt="">
               </div>
               <div class="discount">
-                <div class="line1">¥4</div>
-                <div class="line2">¥5</div>
+                <div class="line1">{{item.activityPrice}}</div>
+                <div class="line2">{{item.originPrice}}</div>
               </div>
               <div class="cnt">
-                <div class="title">福利社</div>
-                <div class="subTitle">今日特价</div>
+                <div class="title">{{item.title}}</div>
+                <div class="subTitle">{{item.subTitle}}</div>
+                <div class="tag">{{item.tag}}</div>
+
               </div>
             </div>
            </div>
-           <div class="module2">
+           <!--<div class="module2">
              <div class="item">
                <div class="picWrap">
                  <img src="http://yanxuan.nosdn.127.net/c95a4d1daa62d7a9004208752a1a2098.png"  alt="">
@@ -190,9 +192,8 @@
                  <div class="subTitle">1元起包邮</div>
                </div>
              </div>
-           </div>
+           </div>-->
          </a>
-
        </div>
      </div>
      <div class="split"></div>
@@ -207,8 +208,17 @@
             <i class="iconfont icon-arrow-left">&gt;</i>
          </a>
        </div>
-        <ul class="list">
-          <li class="item">
+        <ul class="list" v-if="home.data">
+          <li class="item" :style="`backgroundImage:url(${item.picUrl})`" v-for="(item,index) in home.data.tagList" :key="index">
+            <div class="cnt">
+              <h4 class="title">{{item.name}}</h4>
+              <div>
+                <span class="price">{{item.floorPrice}}元起</span>
+                <i class="newIcon">上新</i>
+              </div>
+            </div>
+          </li>
+         <!-- <li class="item">
             <div class="cnt">
               <h4 class="title">海外制造商</h4>
               <div>
@@ -234,16 +244,7 @@
                 <i class="newIcon">上新</i>
               </div>
             </div>
-          </li>
-          <li class="item">
-            <div class="cnt">
-              <h4 class="title">海外制造商</h4>
-              <div>
-                <span class="price">9.9元起</span>
-                <i class="newIcon">上新</i>
-              </div>
-            </div>
-          </li>
+          </li>-->
         </ul>
      </div>
      <div class="split"></div>
@@ -341,27 +342,40 @@
 <script>
   import Swiper from 'swiper'
   import BScroll from 'better-scroll'
+  import {mapState} from 'vuex'
   export default {
     name: "home",
+    computed:{
+      ...mapState(['home'])
+    },
     mounted(){
-     new BScroll('.list-header',{
-        scrollX: true,
-        click: true
+      this.$store.dispatch('getHome',()=>{
+        this.$nextTick(()=>{
+         this._initScroll()
+        })
       })
-     new BScroll('.contentWrap',{
-        click: true
-      })
-     var mySwiper = new Swiper ('.swiper-container', {
 
-        loop: true, // 循环模式选项
-
-        // 如果需要滚动条
-        scrollbar: {
-          el: '.swiper-scrollbar',
-          paginationType : 'progress',
-        },
-      })
+    },
+    methods:{
+      _initScroll(){
+        new BScroll('.list-header',{
+          scrollX: true,
+          click: true
+        })
+        new BScroll('.contentWrap',{
+          click: true
+        })
+        new Swiper ('.swiper-container', {
+          loop: true, // 循环模式选项
+          // 如果需要滚动条
+          scrollbar: {
+            el: '.swiper-scrollbar',
+            paginationType : 'progress',
+          },
+        })
+      }
     }
+
   }
 </script>
 
@@ -426,7 +440,7 @@
         .list-header
           width 6.5rem
           .list
-            width 13.12rem
+            width 16.12rem
             margin-left 0.1rem
             height 0.6rem
             line-height 0.6rem
@@ -583,7 +597,7 @@
          .left
            display: block;
            width: 3.5rem;
-           height: 4.78667rem;
+           height: 5.23rem;
            background: #F9E9CF;
            border-radius: .05333rem;
            margin-right: .05333rem;
@@ -693,7 +707,6 @@
          display flex
          flex-flow row wrap
          .item
-          background-image url("./images/Brandproduct/11.jpg")
           background-size 100% 100%
           background-repeat no-repeat
           position: relative;
@@ -703,12 +716,7 @@
           overflow: hidden;
           background-color: #f4f4f4;
           border-radius: .05333rem;
-          &:nth-child(2)
-            background-image url('./images/Brandproduct/22.png')
-          &:nth-child(3)
-            background-image url('./images/Brandproduct/33.png')
-          &:nth-child(4)
-            background-image url('./images/Brandproduct/44.png')
+
           .cnt
            position: absolute;
            left: 0;
