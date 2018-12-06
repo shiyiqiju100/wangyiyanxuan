@@ -1,36 +1,39 @@
 <template>
-   <div class="wrap">
-     <div class="title">
-       <h2>购物车</h2>
-       <a href="#">领券</a>
-     </div>
-     <div class="content">
-       <ul class="list">
-        <li class="item">
-          <i class="icon"></i>
+  <div class="wrap">
+    <div class="m-hd">
+      <div class="m-cartHd">购物车</div>
+    </div>
+    <div class="reactid">
+      <div class="m-servicePolicy">
+        <div class="item">
+          <div class="servicePolicy"></div>
           <span>30天无忧退货</span>
-        </li>
-        <li class="item">
-          <i class="icon"></i>
+        </div>
+        <div class="item">
+          <div class="servicePolicy"></div>
           <span>48小时快速退款</span>
-        </li>
-        <li class="item">
-          <i class="icon"></i>
+        </div>
+        <div class="item">
+          <div class="servicePolicy"></div>
           <span>满88元免邮费</span>
-        </li>
-       </ul>
-       <div class="container">
-         <div class="cart">
-           <i class="icon"></i>
-           <i class="iconfont icon-gouwuche-copy"></i>
-           <div class="text">去添加点什么吧</div>
-         </div>
-         <div class="login">
-          <div class="loginBtn">登录</div>
-         </div>
-       </div>
-     </div>
-   </div>
+        </div>
+      </div>
+      <div class="m-defaultPage">
+        <div class="container">
+          <div class="img"></div>
+          <div class="txt">
+            <div class="noCart-login">
+              <div class="noCart-title">去添加点什么吧</div>
+              <router-link to="/personal">
+                <div class="noCart-btn">登录</div>
+              </router-link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </template>
 
 <script>
@@ -41,45 +44,111 @@
 
 <style lang="stylus" scoped>
   @import '../../common/stylus/mixins.styl'
- .wrap
-   width 100%
-   height 100%
-   .title
-     height 0.88rem
-     background-color #ffffff
-     text-align center
-     line-height 0.88rem
-     position: relative;
-     h2
-      font-size 0.35rem
-     a
-      position absolute
-      right 0.5rem
-      top 0
-      color: #B4282D;
-   .content
-     clearFix()
-     background #f4f4f4
-     .list
-       width: 90%
-       margin 0 auto
-       .item
-         float left
-         margin-right 0.1rem
-         .icon
-           display: inline-block;
-           vertical-align: middle;
-           background-image: url(//yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/servicePolicy-1d7541974f.png);
-           background-repeat: no-repeat;
-           width: .13333rem;
-           height: .13333rem
 
-     .container
-       position: absolute;
-       top: -.66667rem;
-       right: 0;
-       bottom: 0;
-       left: 0;
-       height: 4rem;
-       margin: auto;
+  .wrap{
+    .m-hd {
+      position: fixed!important;
+      left: 0;
+      top: 0;
+      z-index: 5;
+      width: 100%;
+      height: 88px;
+      .m-cartHd{
+        height: 1.17333rem;
+        padding: 0 .4rem;
+        line-height: 1.17333rem;
+        text-align: center;
+        background-color: #fff;
+        position: relative;
+        font-size: .48rem;
+      }
+    }
+    .reactid{
+      .m-servicePolicy{
+        position: relative;
+        z-index: 1;
+        height: .93333rem;
+        padding: 0 .4rem;
+        background: #f4f4f4;
+        display: -moz-flex;
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: space-between;
+        .item{
+          margin-top: 162px;
+          display: flex;
+          align-items: center;
+          font-size: .32rem;
+          color: #666;
+          .servicePolicy{
+            display: inline-block;
+            vertical-align: middle;
+            background-image: url(//yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/servicePolicy-1d7541974f.png);
+            background-repeat: no-repeat;
+            width: .13333rem;
+            height: .13333rem;
+          }
+          span{
+            font-size: .32rem;
+            color: #666;
+          }
+        }
+      }
+      .m-defaultPage{
+        position: fixed;
+        top: 1.17333rem;
+        left: 0;
+        bottom: 0;
+        z-index: 0;
+        width: 100%;
+        background-color: #f4f4f4;
+        text-align: center;
+        .container{
+          position: absolute;
+          top: -.66667rem;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          height: 4rem;
+          margin: auto;
+          .img{
+            background-image: url(//yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/noCart-a8fe3f12e5.png);
+            display: inline-block;
+            vertical-align: middle;
+            width: 3.30667rem;
+            height: 3.30667rem;
+            margin-bottom: .10667rem;
+            background-size: 3.30667rem 3.30667rem;
+            background-position: center center;
+            background-repeat: no-repeat;
+          }
+          .txt{
+            font-size: .37333rem;
+            line-height: 1;
+            color: #7f7f7f;
+            .noCart-login{
+              margin-top: -.26667rem;
+              .noCart-title{
+                margin-bottom: .66667rem;
+                line-height: 1;
+                font-size: .37333rem;
+                color: #999;
+              }
+              .noCart-btn{
+                margin: auto;
+                width: 6.4rem;
+                height: 1.22667rem;
+                font-size: .4rem;
+                line-height: 1.22667rem;
+                color: #fff;
+                background-color: #b4282d;
+                border-radius: .04rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
  </style>

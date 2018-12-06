@@ -6,6 +6,7 @@ import Classify from '../pages/Classify/Classify'
 import GeneralThings from '../pages/GeneralThings/GeneralThings'
 import GoodsCart from '../pages/GoodsCart/GoodsCart'
 import Personal from '../pages/Personal/Personal'
+import Login from '../pages/Login/Login'
 
 
 Vue.use(VueRouter)
@@ -46,9 +47,10 @@ const router = new VueRouter({
     {
       path: '/personal',
       component: Personal,
-      meta:{
-        isShow:true
-      }
+    },
+    {
+      path: '/login',
+      component: Login,
     },
     {
       path: '/',

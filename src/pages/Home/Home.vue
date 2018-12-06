@@ -46,8 +46,7 @@
           <i class="icon iconfont icon-icon"></i>
         </div>
         </div>
-
-    </div>
+ </div>
 
   </div>
   <div class="contentWrap">
@@ -372,6 +371,10 @@
             el: '.swiper-scrollbar',
             paginationType : 'progress',
           },
+          autoplay: {
+            autoplay:true,
+            delay: 3000
+          },
         })
       }
     }
@@ -533,7 +536,6 @@
      .bg
        width 100%
        height 3.3rem
-       background-color #00b43c
        background-image url('./images/bg2.gif')
        background-repeat no-repeat
        background-size cover

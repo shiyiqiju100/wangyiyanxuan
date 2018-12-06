@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <router-view></router-view>
-    <FooterGuide></FooterGuide>
+    <FooterGuide v-show="$route.meta.isShow" ></FooterGuide>
   </div>
 </template>
 
@@ -12,7 +12,7 @@ import FooterGuide from './components/FooterGuide/FooterGuide'
     name: 'App',
     components:{
       FooterGuide
-    },
+    }
 
   }
 </script>

@@ -7,10 +7,12 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
+import Split from './components/Split/Split'
 
 // webpack在打包时自动解析为js对应的类型(对象)
 import './mock/mockServer'
 
+Vue.component('Split',Split)
 
 new Vue({
   el: '#app',
